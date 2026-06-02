@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+
+    <main class="page dashboard-page">
+        <header class="dashboard-hero">
+            <div>
+                <p class="eyebrow">Panou principal</p>
+                <h1>Dashboard spital</h1>
+                <p>Monitorizeaza rapid pacientii, programarile, internarile si facturile.</p>
+            </div>
+            <div class="hero-actions">
+                <span class="user-chip" id="userChip">Utilizator</span>
+                <button class="secondary-button" id="resetDataBtn" type="button">Reincarca date</button>
+            </div>
+        </header>
+
+        <section class="dashboard-summary" aria-label="Indicatori principali">
+            <article class="summary-card main-stat">
+                <span>Total pacienti</span>
+                <strong id="totalPacienti">0</strong>
+                <p id="patientRatioText">0 internati / 0 externi</p>
+            </article>
+            <article class="summary-card warning-stat">
+                <span>Cazuri urgente</span>
+                <strong id="pacientiUrgenti">0</strong>
+                <p>pacienti cu prioritate urgenta</p>
+            </article>
+            <article class="summary-card danger-stat">
+                <span>Cazuri critice</span>
+                <strong id="pacientiCritici">0</strong>
+                <p>necesita atentie imediata</p>
+            </article>
+            <article class="summary-card money-stat">
+                <span>Venit total</span>
+                <strong id="totalFacturi">0 lei</strong>
+                <p id="invoiceSummaryText">0 facturi emise</p>
+            </article>
+        </section>
+
+        <section class="quick-command-panel panel">
+            <div>
+                <h2>Actiuni rapide</h2>
+                <p class="subtitle">Cele mai folosite operatii sunt la un click distanta.</p>
+            </div>
+            <div class="quick-actions command-actions">
+                <a href="pacienti.html">+ Pacient nou</a>
+                <a href="programari.html">+ Programare</a>
+                <a href="internari.html">+ Internare</a>
+                <a href="facturi.html">+ Factura</a>
+                <a href="retete.html">+ Reteta</a>
+                <a href="raport.html">Raport complet</a>
+            </div>
+        </section>
+
+        <section class="dashboard-main-grid">
+            <article class="panel priority-panel">
+                <div class="panel-title-row">
+                    <div>
+                        <h2>Pacienti care necesita atentie</h2>
+                        <p class="subtitle">Lista este ordonata dupa prioritate si internare.</p>
+                    </div>
+                    <a class="ghost-button small-link" href="pacienti.html">Vezi toti</a>
+                </div>
+                <div id="priorityPatients" class="dashboard-list"></div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-title-row">
+                    <div>
+                        <h2>Urmatoarele programari</h2>
+                        <p class="subtitle">Calendarul apropiat pentru receptie si medici.</p>
+                    </div>
+                    <a class="ghost-button small-link" href="programari.html">Calendar</a>
+                </div>
+                <div id="nextAppointments" class="dashboard-list"></div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-title-row">
+                    <div>
+                        <h2>Flux operational</h2>
+                        <p class="subtitle">Starea curenta a activitatii medicale.</p>
+                    </div>
+                </div>
+                <div class="flow-grid">
+                    <div><span>Internari active</span><strong id="pacientiInternati">0</strong></div>
+                    <div><span>Programari active</span><strong id="totalProgramari">0</strong></div>
+                    <div><span>Medici disponibili</span><strong id="totalMedici">0</strong></div>
+                    <div><span>Retete emise</span><strong id="reteteEmise">0</strong></div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-title-row">
+                    <div>
+                        <h2>Finante si diagnostic</h2>
+                        <p class="subtitle">Rezumat pentru raportare rapida.</p>
+                    </div>
+                    <a class="ghost-button small-link" href="facturi.html">Facturi</a>
+                </div>
+                <div class="finance-box">
+                    <div>
+                        <span>Facturi emise</span>
+                        <strong id="facturiEmise">0</strong>
+                    </div>
+                    <div>
+                        <span>Diagnostic frecvent</span>
+                        <strong id="diagnosticFrecvent">N/A</strong>
+                    </div>
+                </div>
+                <div id="recentActivity" class="info-list compact-info"></div>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

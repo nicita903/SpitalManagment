@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programari</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>Programari</h1>
+                <p>Calendarul vizual al consultatiilor.</p>
+            </div>
+            <button type="button" id="newAppointmentBtn">+ Programare noua</button>
+        </header>
+        <section class="panel">
+            <div class="filters">
+                <input id="programariSearch" type="search" placeholder="Cauta pacient, medic sau tip">
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Pacient</th><th>Medic</th><th>Data</th><th>Ora</th><th>Tip</th><th>Status</th></tr>
+                    </thead>
+                    <tbody id="programariTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="appointmentModal" aria-hidden="true">
+        <section class="modal-card confirm-card" role="dialog" aria-modal="true" aria-labelledby="appointmentModalTitle">
+            <button class="modal-close" type="button" data-close-modal="appointmentModal" aria-label="Inchide">X</button>
+            <h2 id="appointmentModalTitle">Programare noua</h2>
+            <p class="modal-subtitle">Formular vizual pentru prezentare. Salvarea permanenta se face din aplicatia C++.</p>
+            <form id="appointmentForm" class="modal-form single-column-form">
+                <label>ID pacient
+                    <input id="appointmentPatientId" type="number" min="1" required>
+                </label>
+                <label>ID medic
+                    <input id="appointmentMedicId" type="number" min="1" required>
+                </label>
+                <label>Data
+                    <input id="appointmentDate" type="date" required>
+                </label>
+                <label>Ora
+                    <input id="appointmentTime" type="time" required>
+                </label>
+                <label>Tip consultatie
+                    <input id="appointmentType" type="text" placeholder="Consultatie, control, analize" required>
+                </label>
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" data-close-modal="appointmentModal">Anuleaza</button>
+                    <button type="submit">Adauga vizual</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

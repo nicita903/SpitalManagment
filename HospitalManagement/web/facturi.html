@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>Facturi</h1>
+                <p>Evidenta costurilor si a facturilor emise.</p>
+            </div>
+            <button type="button" id="newInvoiceBtn">+ Emite factura</button>
+        </header>
+        <section class="panel">
+            <div class="filters">
+                <input id="facturiSearch" type="search" placeholder="Cauta pacient sau data">
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Pacient</th><th>Data</th><th>Consultatie</th><th>Internare</th><th>Tratament</th><th>Reducere</th><th>Total</th></tr>
+                    </thead>
+                    <tbody id="facturiTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="invoiceModal" aria-hidden="true">
+        <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="invoiceModalTitle">
+            <button class="modal-close" type="button" data-close-modal="invoiceModal" aria-label="Inchide">X</button>
+            <h2 id="invoiceModalTitle">Emitere factura</h2>
+            <p class="modal-subtitle">Formular vizual pentru prezentare. Factura reala se emite din meniul C++.</p>
+            <form id="invoiceForm" class="modal-form">
+                <label>ID pacient
+                    <input id="invoicePatientId" type="number" min="1" required>
+                </label>
+                <label>Data emiterii
+                    <input id="invoiceDate" type="date" required>
+                </label>
+                <label>Cost consultatie
+                    <input id="invoiceConsultation" data-invoice-total type="number" min="0" step="0.01" value="0" required>
+                </label>
+                <label>Cost internare
+                    <input id="invoiceHospitalization" data-invoice-total type="number" min="0" step="0.01" value="0" required>
+                </label>
+                <label>Cost tratament
+                    <input id="invoiceTreatment" data-invoice-total type="number" min="0" step="0.01" value="0" required>
+                </label>
+                <label>Reducere
+                    <input id="invoiceDiscount" data-invoice-total type="number" min="0" step="0.01" value="0" required>
+                </label>
+                <div class="total-preview">
+                    <span>Total calculat</span>
+                    <strong id="invoiceTotalPreview">0.00 lei</strong>
+                </div>
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" data-close-modal="invoiceModal">Anuleaza</button>
+                    <button type="submit">Emite vizual</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

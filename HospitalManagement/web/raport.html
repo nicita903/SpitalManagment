@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raport spital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>Rapoarte</h1>
+                <p>Analiza generala a spitalului pe baza datelor exportate din C++.</p>
+            </div>
+            <div>
+                <button type="button" id="generateReportBtn">Genereaza raport</button>
+                <button type="button" id="exportCsvBtn">Export CSV</button>
+            </div>
+        </header>
+        <section id="raportCards" class="cards"></section>
+        <section class="panel">
+            <h2>Raport general spital</h2>
+            <p class="subtitle">Datele sunt citite din <strong>data/raport_spital.json</strong>.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Indicator</th><th>Valoare</th></tr></thead>
+                    <tbody id="raportTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

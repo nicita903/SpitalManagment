@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacienti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>Gestionare pacienti</h1>
+                <p>Cautare, filtrare si actiuni vizuale pentru pacienti.</p>
+            </div>
+            <button type="button" id="addPatientBtn">+ Adauga pacient</button>
+        </header>
+        <section class="panel">
+            <div class="filters">
+                <input id="searchName" type="search" placeholder="Cauta dupa nume sau prenume">
+                <select id="filterDiagnostic">
+                    <option value="">Toate diagnosticele</option>
+                </select>
+                <select id="filterStatus">
+                    <option value="toti">Toti pacientii</option>
+                    <option value="internati">Internati</option>
+                    <option value="neinternati">Neinternati</option>
+                </select>
+                <select id="filterPriority">
+                    <option value="toate">Toate prioritatile</option>
+                    <option value="scazuta">Scazuta</option>
+                    <option value="medie">Medie</option>
+                    <option value="urgenta">Urgenta</option>
+                    <option value="critica">Critica</option>
+                </select>
+                <button id="sortName" type="button">Sorteaza A-Z</button>
+                <button id="resetFilters" type="button">Reset filtre</button>
+                <button id="resetDataBtn" type="button">Reset date</button>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th><th>ID</th><th>Nume complet</th><th>Varsta</th><th>Telefon</th>
+                            <th>Diagnostic</th><th>Grupa</th><th>Prioritate</th><th>Status</th><th>Editare</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pacientiTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="patientModal" aria-hidden="true">
+        <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="patientModalTitle">
+            <button class="modal-close" type="button" data-close-modal="patientModal" aria-label="Inchide">X</button>
+            <h2 id="patientModalTitle">Editare pacient</h2>
+            <p class="modal-subtitle">Completeaza datele pacientului pentru afisarea vizuala in interfata web.</p>
+            <form id="patientForm" class="modal-form">
+                <input type="hidden" id="patientId">
+                <input type="hidden" id="patientInternat">
+
+                <label>Nume
+                    <input id="patientNume" type="text" placeholder="Nume" required>
+                </label>
+                <label>Prenume
+                    <input id="patientPrenume" type="text" placeholder="Prenume" required>
+                </label>
+                <label>Varsta
+                    <input id="patientVarsta" type="number" min="0" max="120" placeholder="Varsta" required>
+                </label>
+                <label>Telefon
+                    <input id="patientTelefon" type="text" placeholder="Telefon" required>
+                </label>
+                <label>Diagnostic
+                    <input id="patientDiagnostic" type="text" placeholder="Diagnostic" required>
+                </label>
+                <label>Grupa sanguina
+                    <input id="patientGrupa" type="text" placeholder="A+, B-, O+">
+                </label>
+                <label>Adresa
+                    <input id="patientAdresa" type="text" placeholder="Adresa">
+                </label>
+                <label>Alergii
+                    <input id="patientAlergii" type="text" placeholder="Alergii">
+                </label>
+                <label>Prioritate
+                    <select id="patientPrioritate">
+                        <option value="scazuta">Scazuta</option>
+                        <option value="medie">Medie</option>
+                        <option value="urgenta">Urgenta</option>
+                        <option value="critica">Critica</option>
+                    </select>
+                </label>
+
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" data-close-modal="patientModal">Anuleaza</button>
+                    <button type="submit" id="patientSubmitBtn">Salveaza modificarile</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div class="modal-backdrop" id="deleteModal" aria-hidden="true">
+        <section class="modal-card confirm-card" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+            <button class="modal-close" type="button" data-close-modal="deleteModal" aria-label="Inchide">X</button>
+            <h2 id="deleteModalTitle">Confirmare stergere</h2>
+            <p id="deleteModalText">Sigur doresti sa stergi acest pacient din afisare?</p>
+            <div class="modal-actions">
+                <button class="secondary-button" type="button" data-close-modal="deleteModal">Anuleaza</button>
+                <button class="danger-button" type="button" id="confirmDeleteBtn">Sterge</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

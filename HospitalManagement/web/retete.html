@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retete</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>Retete</h1>
+                <p>Retete emise si tratamente recomandate.</p>
+            </div>
+            <button type="button" id="newPrescriptionBtn">+ Reteta noua</button>
+        </header>
+        <section class="panel">
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Pacient</th><th>Medic</th><th>Medicamente</th><th>Dozaj</th><th>Durata</th><th>Data</th></tr>
+                    </thead>
+                    <tbody id="reteteTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="prescriptionModal" aria-hidden="true">
+        <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="prescriptionModalTitle">
+            <button class="modal-close" type="button" data-close-modal="prescriptionModal" aria-label="Inchide">X</button>
+            <h2 id="prescriptionModalTitle">Reteta noua</h2>
+            <p class="modal-subtitle">Formular vizual pentru prezentare. Emiterea permanenta se face din aplicatia C++.</p>
+            <form id="prescriptionForm" class="modal-form">
+                <label>ID pacient
+                    <input id="prescriptionPatientId" type="number" min="1" required>
+                </label>
+                <label>ID medic
+                    <input id="prescriptionDoctorId" type="number" min="1" required>
+                </label>
+                <label>Medicamente
+                    <input id="prescriptionMedicine" type="text" placeholder="Medicamente" required>
+                </label>
+                <label>Dozaj
+                    <input id="prescriptionDosage" type="text" placeholder="1 comprimat la 8 ore" required>
+                </label>
+                <label>Durata tratament
+                    <input id="prescriptionDuration" type="text" placeholder="7 zile" required>
+                </label>
+                <label>Data emitere
+                    <input id="prescriptionDate" type="date" required>
+                </label>
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" data-close-modal="prescriptionModal">Anuleaza</button>
+                    <button type="submit">Emite vizual</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

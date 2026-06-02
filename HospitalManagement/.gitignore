@@ -1,0 +1,8 @@
+hospital_app
+test_programari
+test_facturi
+*.o
+*.exe
+build/
+.vscode/
+.idea/

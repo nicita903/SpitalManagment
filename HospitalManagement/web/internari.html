@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internari</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Hospital</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacienti.html">Pacienti</a>
+        <a href="medici.html">Medici</a>
+        <a href="programari.html">Programari</a>
+        <a href="internari.html">Internari</a>
+        <a href="facturi.html">Facturi</a>
+        <a href="istoric.html">Istoric</a>
+        <a href="retete.html">Retete</a>
+        <a href="raport.html">Raport</a>
+        <a href="about.html">About</a>
+    </aside>
+    <main class="page">
+        <header class="page-header">
+            <div>
+                <h1>Internari</h1>
+                <p>Situatia pacientilor internati si a costurilor de salon.</p>
+            </div>
+            <button type="button" id="newHospitalizationBtn">+ Internare pacient</button>
+        </header>
+        <section class="panel">
+            <div class="filters">
+                <input id="internariSearch" type="search" placeholder="Cauta pacient sau sectie">
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Pacient</th><th>Sectie</th><th>Data</th>
+                            <th>Zile</th><th>Salon</th><th>Status</th><th>Cost</th><th>Actiuni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="internariTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="hospitalizationModal" aria-hidden="true">
+        <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="hospitalizationModalTitle">
+            <button class="modal-close" type="button" data-close-modal="hospitalizationModal" aria-label="Inchide">X</button>
+            <h2 id="hospitalizationModalTitle">Internare pacient</h2>
+            <p class="modal-subtitle">Formular vizual pentru prezentare. Internarea reala se salveaza din meniul C++.</p>
+            <form id="hospitalizationForm" class="modal-form">
+                <label>ID pacient
+                    <input id="hospitalizationPatientId" type="number" min="1" required>
+                </label>
+                <label>Sectie
+                    <input id="hospitalizationSection" type="text" placeholder="Cardiologie" required>
+                </label>
+                <label>Data internarii
+                    <input id="hospitalizationDate" type="date" required>
+                </label>
+                <label>Numar zile
+                    <input id="hospitalizationDays" type="number" min="1" required>
+                </label>
+                <label>Tip salon
+                    <input id="hospitalizationRoom" type="text" placeholder="standard / privat" required>
+                </label>
+                <label>Cost pe zi
+                    <input id="hospitalizationCost" type="number" min="0" step="0.01" required>
+                </label>
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" data-close-modal="hospitalizationModal">Anuleaza</button>
+                    <button type="submit">Adauga vizual</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
