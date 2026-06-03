@@ -12,6 +12,9 @@ public:
     static Factura facturaCompleta(int idFactura, int idPacient, const std::string& data,
                                    double costConsultatie, double costInternare,
                                    double costTratament, double reducere);
+    static Factura facturaCuMedicamente(int idFactura, int idPacient, const std::string& data,
+                                        double costConsultatie, double costInternare,
+                                        double costTratament, double reducere, double costMedicamente);
 };
 
 #endif

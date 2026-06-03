@@ -14,11 +14,9 @@
         <a href="medici.html">Medici</a>
         <a href="programari.html">Programari</a>
         <a href="internari.html">Internari</a>
-        <a href="facturi.html">Facturi</a>
-        <a href="istoric.html">Istoric</a>
         <a href="retete.html">Retete</a>
+        <a href="facturi.html">Facturi</a>
         <a href="raport.html">Raport</a>
-        <a href="about.html">About</a>
     </aside>
     <main class="page">
         <header class="page-header">
@@ -104,6 +102,41 @@
                         <option value="urgenta">Urgenta</option>
                         <option value="critica">Critica</option>
                     </select>
+                </label>
+                <div class="form-section-title">Intrare spital</div>
+                <label>Data intrarii
+                    <input id="entryDate" type="date">
+                </label>
+                <label>Ora intrarii
+                    <input id="entryTime" type="time">
+                </label>
+                <label>Mod intrare
+                    <select id="entryMode">
+                        <option value="">Fara intrare noua</option>
+                        <option value="ambulanta">Ambulanta</option>
+                        <option value="prezentare_directa">Prezentare directa</option>
+                        <option value="trimitere_medic_familie">Trimitere medic familie</option>
+                        <option value="transfer_alt_spital">Transfer alt spital</option>
+                        <option value="programare">Programare</option>
+                        <option value="urgenta">Urgenta</option>
+                    </select>
+                </label>
+                <label>Nivel urgenta
+                    <select id="entryUrgency">
+                        <option value="scazut">Scazut</option>
+                        <option value="mediu">Mediu</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="critic">Critic</option>
+                    </select>
+                </label>
+                <label>Motiv prezentare
+                    <input id="entryReason" type="text" placeholder="Motiv prezentare">
+                </label>
+                <label>Insotitor
+                    <input id="entryCompanion" type="text" placeholder="Nume insotitor">
+                </label>
+                <label class="span-2">Observatii initiale
+                    <input id="entryNotes" type="text" placeholder="Observatii receptie">
                 </label>
 
                 <div class="modal-actions">

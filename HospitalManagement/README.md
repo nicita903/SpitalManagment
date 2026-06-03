@@ -29,7 +29,7 @@ Aplicatia C++ porneste direct in meniul demo pentru prezentare. Operatiile reale
 - `8. Finalizeaza programare`: introduci ID programare, statusul devine `finalizata`.
 - `9. Interneaza pacient`: introduci ID pacient, sectie, data, numar zile, tip salon si cost pe zi. Pacientul devine internat si internarea se salveaza cu status `activa`.
 - `10. Externeaza pacient`: introduci ID pacient. Internarea activa devine `finalizata`, iar pacientul devine neinternat.
-- `12. Emite factura`: introduci ID pacient, data si costurile. Reducerea este suma in lei, iar totalul se calculeaza cu formula `costConsultatie + costInternare + costTratament - reducere`.
+- `12. Emite factura`: introduci ID pacient, data si costurile. Reducerea este suma in lei, iar totalul se calculeaza cu formula `costConsultatie + costInternare + costTratament + costMedicamente - reducere`.
 - `14. Cauta facturi dupa pacient`: afiseaza facturile pacientului dupa ID.
 - `15. Calculeaza venit total`: calculeaza suma tuturor facturilor.
 - `16. Genereaza JSON pentru web`: actualizeaza fisierele din `data/`.
@@ -42,6 +42,8 @@ Dupa operatiile importante, aplicatia actualizeaza automat fisierele `data/*.jso
 - `admin / admin123`
 - `medic / medic123`
 - `receptie / receptie123`
+
+Adminul poate crea conturi separate pentru medici din pagina `web/medici.html`. La adaugarea unui medic se completeaza si username/parola; contul nou primeste `role: "medic"` si `doctorId` egal cu ID-ul medicului creat. Dupa login, medicul vede doar programarile unde `idMedic == doctorId` si doar pacientii asociati acelor programari.
 
 ## Roluri
 
@@ -64,12 +66,17 @@ Dupa operatiile importante, aplicatia actualizeaza automat fisierele `data/*.jso
 - prioritate pacient: `scazuta`, `medie`, `urgenta`, `critica`
 - raport spital in `data/raport_spital.txt` si `data/raport_spital.json`
 - export CSV in `data/export/`
+- intrare spital prin clasa `IntrareSpital`
+- farmacie prin clasele `Medicament`, `Farmacie` si `AchizitieMedicamente`
+- facturi care pot include costul medicamentelor
+- pagina web `farmacie.html`
+- cont login individual pentru fiecare medic creat de admin in interfata web
 
 ## Interfata web
 
 Ruleaza aplicatia C++ si alege optiunea `16` pentru generarea fisierelor JSON. Pentru raport foloseste optiunea `17`. Logica principala ramane in C++; HTML/CSS/JavaScript doar afiseaza datele din fisierele JSON.
 
-Paginile web au modaluri vizuale pentru programare noua, internare pacient si emitere factura. Acestea sunt doar pentru prezentare; salvarea permanenta se face din aplicatia C++.
+Paginile web au modaluri vizuale pentru programare noua, internare pacient, emitere factura, medici si farmacie. Acestea sunt pentru prezentare in browser; salvarea permanenta se face din aplicatia C++.
 
 Apoi deschide:
 

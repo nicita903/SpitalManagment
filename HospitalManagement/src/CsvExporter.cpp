@@ -48,7 +48,7 @@ void CsvExporter::exportProgramari(const std::vector<Programare>& programari, co
 
 void CsvExporter::exportFacturi(const std::vector<Factura>& facturi, const std::string& cale) {
     std::ofstream out(cale);
-    out << "idFactura,idPacient,dataEmitere,costConsultatie,costInternare,costTratament,reducere,total\n";
+    out << "idFactura,idPacient,dataEmitere,costConsultatie,costInternare,costTratament,costMedicamente,reducere,total\n";
     for (const auto& factura : facturi) {
         out << factura.getIdFactura() << ","
             << factura.getIdPacient() << ","
@@ -56,6 +56,7 @@ void CsvExporter::exportFacturi(const std::vector<Factura>& facturi, const std::
             << factura.getCostConsultatie() << ","
             << factura.getCostInternare() << ","
             << factura.getCostTratament() << ","
+            << factura.getCostMedicamente() << ","
             << factura.getReducere() << ","
             << factura.getTotal() << "\n";
     }

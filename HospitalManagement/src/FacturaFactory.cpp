@@ -14,3 +14,9 @@ Factura FacturaFactory::facturaCompleta(int idFactura, int idPacient, const std:
                                         double costTratament, double reducere) {
     return Factura(idFactura, idPacient, data, costConsultatie, costInternare, costTratament, reducere);
 }
+
+Factura FacturaFactory::facturaCuMedicamente(int idFactura, int idPacient, const std::string& data,
+                                             double costConsultatie, double costInternare,
+                                             double costTratament, double reducere, double costMedicamente) {
+    return Factura(idFactura, idPacient, data, costConsultatie, costInternare, costTratament, reducere, costMedicamente);
+}

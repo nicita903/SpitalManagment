@@ -1,5 +1,6 @@
 #include "../src/CsvExporter.h"
 #include "../src/Exceptions.h"
+#include "../src/Farmacie.h"
 #include "../src/FacturaFactory.h"
 #include "../src/IstoricMedical.h"
 #include "../src/Pacient.h"
@@ -52,9 +53,18 @@ int main() {
     programari.emplace_back(1, 1, 1, "2026-06-10", "09:30", "Consultatie");
     std::vector<Factura> facturi;
     facturi.push_back(FacturaFactory::facturaCompleta(1, 1, "2026-06-02", 200, 0, 120, 32));
+    facturi.push_back(FacturaFactory::facturaCuMedicamente(2, 1, "2026-06-03", 100, 0, 0, 0, 50));
 
     StatisticiSpital statistici(pacienti, medici, programari, facturi);
-    assert(aproapeEgal(statistici.calculeazaVenitTotal(), 288.0));
+    assert(aproapeEgal(statistici.calculeazaVenitTotal(), 438.0));
+
+    std::vector<Medicament> medicamente;
+    Farmacie::adaugaMedicament(medicamente, Medicament(1, "Paracetamol", "Paracetamol", 10.0, 20, "nu"));
+    assert(medicamente.size() == 1);
+    AchizitieMedicamente achizitie = Farmacie::vindeMedicament(medicamente, 1, 1, 1, 2, "2026-06-03");
+    assert(aproapeEgal(achizitie.getPretTotal(), 20.0));
+    assert(medicamente[0].getStoc() == 18);
+    assert(aproapeEgal(Farmacie::calculeazaValoareStoc(medicamente), 180.0));
 
     CsvExporter::exportTot(pacienti, programari, facturi);
     std::ifstream csv("data/export/pacienti.csv");

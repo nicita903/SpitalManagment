@@ -14,11 +14,9 @@
         <a href="medici.html">Medici</a>
         <a href="programari.html">Programari</a>
         <a href="internari.html">Internari</a>
-        <a href="facturi.html">Facturi</a>
-        <a href="istoric.html">Istoric</a>
         <a href="retete.html">Retete</a>
+        <a href="facturi.html">Facturi</a>
         <a href="raport.html">Raport</a>
-        <a href="about.html">About</a>
     </aside>
     <main class="page">
         <header class="page-header">
@@ -32,7 +30,7 @@
             <div class="table-wrap">
                 <table>
                     <thead>
-                        <tr><th>ID</th><th>Pacient</th><th>Medic</th><th>Medicamente</th><th>Dozaj</th><th>Durata</th><th>Data</th></tr>
+                        <tr><th>ID</th><th>Pacient</th><th>Medic</th><th>Medicamente</th><th>Dozaj</th><th>Durata</th><th>Data</th><th>Total medicamente</th></tr>
                     </thead>
                     <tbody id="reteteTable"></tbody>
                 </table>
@@ -52,9 +50,22 @@
                 <label>ID medic
                     <input id="prescriptionDoctorId" type="number" min="1" required>
                 </label>
-                <label>Medicamente
-                    <input id="prescriptionMedicine" type="text" placeholder="Medicamente" required>
-                </label>
+                <div class="prescription-medicine-picker">
+                    <label>Medicament din farmacie
+                        <select id="prescriptionMedicineSelect"></select>
+                    </label>
+                    <label>Cantitate
+                        <input id="prescriptionMedicineQuantity" type="number" min="1" value="1">
+                    </label>
+                    <button class="secondary-button" id="addPrescriptionMedicineBtn" type="button">Adauga medicament</button>
+                </div>
+                <div class="selected-medicines" id="selectedPrescriptionMedicines">
+                    <span class="muted">Nu a fost selectat niciun medicament.</span>
+                </div>
+                <div class="total-preview">
+                    <span>Pret final medicamente</span>
+                    <strong id="prescriptionMedicineTotal">0.00 lei</strong>
+                </div>
                 <label>Dozaj
                     <input id="prescriptionDosage" type="text" placeholder="1 comprimat la 8 ore" required>
                 </label>

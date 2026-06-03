@@ -917,6 +917,42 @@ tr:hover td {
     text-align: center;
 }
 
+.modal-form .span-2,
+.form-section-title {
+    grid-column: 1 / -1;
+}
+
+.form-section-title {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    color: var(--text);
+    font-weight: 850;
+}
+
+.pharmacy-stats {
+    margin-bottom: 18px;
+}
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+.access-denied {
+    max-width: 680px;
+    margin: 12vh auto 0;
+    text-align: center;
+}
+
+.access-denied h1 {
+    margin-bottom: 10px;
+}
+
+.access-denied .ghost-button {
+    margin-top: 16px;
+}
+
 .flow-grid,
 .finance-box {
     display: grid;
@@ -981,4 +1017,49 @@ tr:hover td {
     .dashboard-list-item {
         grid-template-columns: 1fr;
     }
+}
+
+.prescription-medicine-picker {
+    display: grid;
+    grid-template-columns: 1.5fr 0.7fr auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.selected-medicines {
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(22, 163, 74, 0.06);
+}
+
+.selected-medicine-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.selected-medicine-row:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 760px) {
+    .prescription-medicine-picker,
+    .selected-medicine-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.invoice-prescription-summary {
+    grid-column: 1 / -1;
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    border-radius: 14px;
+    padding: 12px 14px;
+    background: rgba(22, 163, 74, 0.06);
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
 }

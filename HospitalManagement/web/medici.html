@@ -14,11 +14,9 @@
         <a href="medici.html">Medici</a>
         <a href="programari.html">Programari</a>
         <a href="internari.html">Internari</a>
-        <a href="facturi.html">Facturi</a>
-        <a href="istoric.html">Istoric</a>
         <a href="retete.html">Retete</a>
+        <a href="facturi.html">Facturi</a>
         <a href="raport.html">Raport</a>
-        <a href="about.html">About</a>
     </aside>
     <main class="page">
         <header class="page-header">
@@ -26,6 +24,7 @@
                 <h1>Medici</h1>
                 <p>Lista personalului medical si specializarile active.</p>
             </div>
+            <button type="button" id="addDoctorBtn">+ Adauga medic</button>
         </header>
         <section class="panel">
             <div class="filters">
@@ -34,13 +33,73 @@
             <div class="table-wrap">
                 <table>
                     <thead>
-                        <tr><th>ID</th><th>Nume</th><th>Prenume</th><th>Sectie</th><th>Specializare</th><th>Cod parafa</th><th>Consultatii</th></tr>
+                        <tr><th>ID</th><th>Nume</th><th>Prenume</th><th>Sectie</th><th>Specializare</th><th>Cod parafa</th><th>Consultatii</th><th>Cont login</th><th>Actiuni</th></tr>
                     </thead>
                     <tbody id="mediciTable"></tbody>
                 </table>
             </div>
         </section>
     </main>
+
+    <div class="modal-backdrop" id="doctorModal" aria-hidden="true">
+        <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="doctorModalTitle">
+            <button class="modal-close" type="button" data-close-modal="doctorModal" aria-label="Inchide">X</button>
+            <h2 id="doctorModalTitle">Adauga medic</h2>
+            <p class="modal-subtitle">Doar administratorul poate crea, edita sau sterge medici din interfata.</p>
+            <form id="doctorForm" class="modal-form">
+                <input type="hidden" id="doctorId">
+                <div class="form-section-title">Date medic</div>
+                <label>Nume
+                    <input id="doctorNume" type="text" required>
+                </label>
+                <label>Prenume
+                    <input id="doctorPrenume" type="text" required>
+                </label>
+                <label>Varsta
+                    <input id="doctorVarsta" type="number" min="18" max="90" required>
+                </label>
+                <label>Telefon
+                    <input id="doctorTelefon" type="text" required>
+                </label>
+                <label>Salariu
+                    <input id="doctorSalariu" type="number" min="0" step="0.01" required>
+                </label>
+                <label>Sectie
+                    <input id="doctorSectie" type="text" required>
+                </label>
+                <label>Specializare
+                    <input id="doctorSpecializare" type="text" required>
+                </label>
+                <label>Cod parafa
+                    <input id="doctorCodParafa" type="text" required>
+                </label>
+                <label>Consultatii
+                    <input id="doctorConsultatii" type="number" min="0" value="0" required>
+                </label>
+                <div class="form-section-title">Cont autentificare</div>
+                <label>Username
+                    <input id="doctorUsername" type="text" autocomplete="off" required>
+                </label>
+                <label>Parola
+                    <input id="doctorPassword" type="password" autocomplete="new-password">
+                </label>
+                <label>Confirma parola
+                    <input id="doctorPasswordConfirm" type="password" autocomplete="new-password">
+                </label>
+                <label>Cont activ
+                    <select id="doctorAccountActive">
+                        <option value="true">Activ</option>
+                        <option value="false">Inactiv</option>
+                    </select>
+                </label>
+                <div class="modal-actions">
+                    <button class="secondary-button" type="button" data-close-modal="doctorModal">Anuleaza</button>
+                    <button type="submit" id="doctorSubmitBtn">Salveaza</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

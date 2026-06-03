@@ -5,17 +5,18 @@
 
 Factura::Factura()
     : idFactura(0), idPacient(0), costConsultatie(0.0), costInternare(0.0),
-      costTratament(0.0), reducere(0.0), total(0.0) {}
+      costTratament(0.0), costMedicamente(0.0), reducere(0.0), total(0.0) {}
 
 Factura::Factura(int idFactura, int idPacient, const std::string& dataEmitere,
                  double costConsultatie, double costInternare,
-                 double costTratament, double reducere)
+                 double costTratament, double reducere, double costMedicamente)
     : idFactura(idFactura), idPacient(idPacient), dataEmitere(dataEmitere),
       costConsultatie(costConsultatie), costInternare(costInternare),
-      costTratament(costTratament), reducere(reducere), total(0.0) {
-    double sumaCosturi = costConsultatie + costInternare + costTratament;
+      costTratament(costTratament), costMedicamente(costMedicamente), reducere(reducere), total(0.0) {
+    double sumaCosturi = costConsultatie + costInternare + costTratament + costMedicamente;
     if (idFactura <= 0 || idPacient <= 0 || dataEmitere.empty() || reducere < 0.0 ||
-        costConsultatie < 0.0 || costInternare < 0.0 || costTratament < 0.0) {
+        costConsultatie < 0.0 || costInternare < 0.0 || costTratament < 0.0 ||
+        costMedicamente < 0.0) {
         throw FacturaInvalidaException("Date invalide pentru factura.");
     }
     if (reducere > sumaCosturi) {
@@ -33,11 +34,12 @@ std::string Factura::getDataEmitere() const { return dataEmitere; }
 double Factura::getCostConsultatie() const { return costConsultatie; }
 double Factura::getCostInternare() const { return costInternare; }
 double Factura::getCostTratament() const { return costTratament; }
+double Factura::getCostMedicamente() const { return costMedicamente; }
 double Factura::getReducere() const { return reducere; }
 double Factura::getTotal() const { return total; }
 
 double Factura::calculeazaTotal() {
-    total = costConsultatie + costInternare + costTratament - reducere;
+    total = costConsultatie + costInternare + costTratament + costMedicamente - reducere;
     return total;
 }
 

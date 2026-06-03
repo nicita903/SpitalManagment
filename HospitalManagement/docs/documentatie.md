@@ -13,7 +13,7 @@ Aplicatia gestioneaza pacienti, medici, asistenti, programari, internari si fact
 - `Asistent`: mosteneste `Angajat` si adauga tura si ani de experienta.
 - `Programare`: gestioneaza programarile, statusurile `activa`, `anulata`, `finalizata` si verifica validitatea/conflictele.
 - `Internare`: gestioneaza internarea/externarea, statusurile `activa`, `finalizata` si calculeaza costul internarii.
-- `Factura`: calculeaza totalul unei facturi cu reducere fixa in lei.
+- `Factura`: calculeaza totalul unei facturi cu reducere fixa in lei si cost separat pentru medicamente.
 - `ServiciuMedical`: clasa abstracta pentru calcul polimorfic de cost.
 - `DataManager`: salveaza datele in JSON.
 - `Logger`: scrie operatiunile critice in `data/log.txt`.
@@ -25,6 +25,10 @@ Aplicatia gestioneaza pacienti, medici, asistenti, programari, internari si fact
 - `Reteta`: retine retete emise de medici pentru pacienti.
 - `RaportSpital`: genereaza raport text si JSON.
 - `CsvExporter`: exporta pacienti, programari si facturi in CSV.
+- `IntrareSpital`: retine intrarea pacientului in spital, modul de intrare, urgenta si statusul fluxului.
+- `Medicament`: modeleaza un medicament din farmacie, cu pret, stoc si obligativitatea retetei.
+- `Farmacie`: gestioneaza adaugarea medicamentelor, vanzarea si exportul JSON.
+- `AchizitieMedicamente`: retine cumpararea unui medicament de catre pacient si legatura optionala cu o reteta.
 
 ## Mostenire
 
@@ -89,7 +93,7 @@ Externarea se face din optiunea `10. Externeaza pacient`. Daca pacientul nu este
 Factura se emite din optiunea `12. Emite factura`. Formula folosita este:
 
 ```text
-total = costConsultatie + costInternare + costTratament - reducere
+total = costConsultatie + costInternare + costTratament + costMedicamente - reducere
 ```
 
 Reducerea este suma fixa in lei, nu procent. Aplicatia valideaza costurile negative, reducerea negativa, reducerea mai mare decat suma costurilor si pacientul inexistent. Facturile se pot afisa, cauta dupa pacient si folosi pentru calculul venitului total.
@@ -123,6 +127,23 @@ Formatul logului:
 - `medic`: poate afisa pacienti, afisa programari, cauta pacienti si actualiza diagnosticul.
 - `receptie`: poate adauga pacienti, crea programari si afisa pacienti/programari.
 
+## Conturi pentru medici
+
+In interfata web, adminul creeaza medicul din `medici.html` si completeaza sectiunea de autentificare. Se salveaza doua entitati in `localStorage`: medicul in `medici` si userul in `users`.
+
+```text
+Admin
+`-- creeaza Medic
+    `-- se creeaza User(role=medic, doctorId=idMedic)
+```
+
+La login, aplicatia cauta userul in `hospitalManagementData.users`. Pentru rolul `medic`, obiectul `hospitalCurrentUser` contine `doctorId`. Filtrarea datelor foloseste acest ID:
+
+- programari: `idMedic == currentUser.doctorId`
+- pacienti: pacientii care au programari la acel medic
+- retete: `idMedic == currentUser.doctorId`
+- medici: doar profilul medicului autentificat
+
 ## Statistici
 
 Clasa `StatisticiSpital` calculeaza:
@@ -148,11 +169,15 @@ Clasa `Pacient` are campul `prioritate`, cu valorile:
 
 Functiile din `PrioritateUtils` permit sortarea pacientilor dupa prioritate si afisarea pacientilor urgenti/critici.
 
-## Istoric medical si retete
+## Istoric medical, retete si farmacie
 
 `IstoricMedical` salveaza consultatiile anterioare in `data/istoric_medical.json`.
 
 `Reteta` salveaza retetele medicale in `data/retete.json`.
+
+`Farmacie` foloseste `Medicament` si `AchizitieMedicamente` pentru stocuri si vanzari. Medicamentele pot cere reteta, iar o achizitie poate fi legata de `idReteta`. Datele sunt exportate in `data/medicamente.json` si `data/achizitii_medicamente.json`.
+
+`IntrareSpital` salveaza intrarile pacientilor in `data/intrari_spital.json`. Campurile principale sunt data, ora, mod intrare, motiv, nivel urgenta, insotitor, observatii si status.
 
 ## Rapoarte si CSV
 
@@ -183,6 +208,9 @@ Paginile web citesc fisierele:
 - `data/statistici.json`
 - `data/istoric_medical.json`
 - `data/retete.json`
+- `data/intrari_spital.json`
+- `data/medicamente.json`
+- `data/achizitii_medicamente.json`
 - `data/raport_spital.json`
 
 ## Structura proiectului
@@ -218,6 +246,9 @@ Factura(idFactura, idPacient, dataEmitere, costuri, reducere, total)
 Sectie(idSectie, denumire, etaj, numarPaturiTotal, numarPaturiOcupate)
 IstoricMedical(idIstoric, idPacient, diagnosticAnterior, tratament, dataConsultatie, observatiiMedic)
 Reteta(idReteta, idPacient, idMedic, medicamente, dozaj, durataTratament, dataEmitere)
+IntrareSpital(idIntrare, idPacient, dataIntrare, oraIntrare, modIntrare, nivelUrgenta, status)
+Medicament(idMedicament, denumire, substantaActiva, pretUnitar, stoc, necesitaReteta)
+AchizitieMedicamente(idAchizitie, idPacient, idMedicament, cantitate, pretTotal, idReteta)
 ServiciuMedical <|-- Consultatie, Analize, InternareServiciu, Operatie
 AuthService --> Utilizator
 StatisticiSpital --> Pacient, Medic, Programare, Factura

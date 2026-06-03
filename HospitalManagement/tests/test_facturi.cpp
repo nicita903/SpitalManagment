@@ -17,6 +17,10 @@ int main() {
     Factura completa = FacturaFactory::facturaCompleta(2, 1, "2026-06-02", 200.0, 500.0, 300.0, 100.0);
     assert(aproapeEgal(completa.getTotal(), 900.0));
 
+    Factura cuMedicamente(5, 1, "2026-06-02", 100.0, 0.0, 50.0, 20.0, 80.0);
+    assert(aproapeEgal(cuMedicamente.getCostMedicamente(), 80.0));
+    assert(aproapeEgal(cuMedicamente.getTotal(), 210.0));
+
     bool costNegativ = false;
     try {
         Factura invalida(3, 1, "2026-06-02", -10.0, 0.0, 0.0, 0.0);

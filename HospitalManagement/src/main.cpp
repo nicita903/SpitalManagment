@@ -627,11 +627,12 @@ static void emiteFactura() {
     double costConsultatie = citesteDouble("Cost consultatie: ");
     double costInternare = citesteDouble("Cost internare: ");
     double costTratament = citesteDouble("Cost tratament: ");
+    double costMedicamente = citesteDouble("Cost medicamente: ");
     double reducere = citesteDouble("Reducere in lei: ");
 
-    Factura factura = FacturaFactory::facturaCompleta(idFactura, idPacient, data,
-                                                      costConsultatie, costInternare,
-                                                      costTratament, reducere);
+    Factura factura = FacturaFactory::facturaCuMedicamente(idFactura, idPacient, data,
+                                                           costConsultatie, costInternare,
+                                                           costTratament, reducere, costMedicamente);
     facturi.push_back(factura);
     DataManager::salveazaFacturi(facturi, "data/facturi.json");
     Logger::log("FACTURA: Factura ID " + std::to_string(idFactura) +
@@ -723,7 +724,7 @@ static void incarcaDateInitiale() {
     internari.emplace_back(4, 7, "Cardiologie", "2026-05-31", 7, "terapie", 450.0, "activa");
     internari.emplace_back(5, 8, "Chirurgie", "2026-06-02", 3, "standard", 320.0, "activa");
 
-    facturi.push_back(FacturaFactory::facturaCompleta(1, 1, "2026-06-02", 200, 0, 120, 32));
+    facturi.push_back(FacturaFactory::facturaCuMedicamente(1, 1, "2026-06-02", 200, 0, 120, 32, 40));
     facturi.push_back(FacturaFactory::facturaCompleta(2, 2, "2026-06-02", 220, 1000, 180, 0));
     facturi.push_back(FacturaFactory::facturaCompleta(3, 4, "2026-06-02", 250, 1800, 300, 50));
     facturi.push_back(FacturaFactory::facturaCompleta(4, 6, "2026-06-02", 210, 1400, 240, 0));

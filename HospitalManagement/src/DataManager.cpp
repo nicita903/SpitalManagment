@@ -100,6 +100,7 @@ void DataManager::salveazaFacturi(const std::vector<Factura>& facturi, const std
             << "\"costConsultatie\":" << f.getCostConsultatie() << ","
             << "\"costInternare\":" << f.getCostInternare() << ","
             << "\"costTratament\":" << f.getCostTratament() << ","
+            << "\"costMedicamente\":" << f.getCostMedicamente() << ","
             << "\"reducere\":" << f.getReducere() << ","
             << "\"total\":" << f.getTotal()
             << "}" << (i + 1 < facturi.size() ? "," : "") << "\n";
