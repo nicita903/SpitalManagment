@@ -1069,9 +1069,58 @@ function ensureArray(value) {
     return Array.isArray(value) ? value : [];
 }
 
+let backendAvailable = null;
+
+async function checkBackend() {
+    if (backendAvailable !== null) {
+        return backendAvailable;
+    }
+    try {
+        const response = await fetch("/api/health", { cache: "no-store" });
+        backendAvailable = response.ok;
+    } catch (error) {
+        backendAvailable = false;
+    }
+    return backendAvailable;
+}
+
+async function loadFromBackend() {
+    try {
+        const response = await fetch("/api/data", { cache: "no-store" });
+        if (!response.ok) {
+            throw new Error("Server indisponibil");
+        }
+        backendAvailable = true;
+        return await response.json();
+    } catch (error) {
+        backendAvailable = false;
+        return null;
+    }
+}
+
+async function saveDataToBackend(data) {
+    try {
+        const response = await fetch("/api/data", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) {
+            throw new Error("Salvarea pe server a esuat");
+        }
+        backendAvailable = true;
+        return true;
+    } catch (error) {
+        backendAvailable = false;
+        console.warn("Datele s-au salvat doar in browser. Porneste serverul Node.js pentru salvare in JSON.", error);
+        return false;
+    }
+}
+
 function saveData() {
     recalcDerivedData(appData);
     localStorage.setItem(storageKey, JSON.stringify(appData));
+    saveDataToBackend(appData);
 }
 
 function nextId(items, field) {
@@ -1092,6 +1141,27 @@ async function loadJson(path, fallbackValue) {
 
 async function loadAll() {
     if (appData) {
+        return appData;
+    }
+
+    const backendData = await loadFromBackend();
+    if (backendData) {
+        appData = backendData;
+        appData.users = ensureArray(appData.users);
+        appData.pacienti = ensureArray(appData.pacienti);
+        appData.medici = ensureArray(appData.medici);
+        appData.programari = ensureArray(appData.programari);
+        appData.internari = ensureArray(appData.internari);
+        appData.facturi = ensureArray(appData.facturi);
+        appData.istoric = ensureArray(appData.istoric);
+        appData.retete = ensureArray(appData.retete);
+        appData.intrari = ensureArray(appData.intrari);
+        appData.medicamente = ensureArray(appData.medicamente).length ? appData.medicamente : clone(emptyData.medicamente);
+        appData.achizitii = ensureArray(appData.achizitii);
+        ensureDefaultUsers(appData);
+        ensureSeedHospitalData(appData);
+        recalcDerivedData(appData);
+        localStorage.setItem(storageKey, JSON.stringify(appData));
         return appData;
     }
 

@@ -128,5 +128,18 @@
     "internat": false,
     "alergii": "fara",
     "prioritate": "scazuta"
+  },
+  {
+    "id": 11,
+    "nume": "Danu",
+    "prenume": "Ureke",
+    "varsta": 20,
+    "telefon": "076666332",
+    "diagnostic": "Gripa",
+    "grupaSange": "B-",
+    "adresa": "Alexaandru cel bun",
+    "alergii": "la ceapa",
+    "prioritate": "critica",
+    "internat": false
   }
 ]

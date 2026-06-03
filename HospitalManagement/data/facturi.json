@@ -3,50 +3,50 @@
     "idFactura": 1,
     "idPacient": 1,
     "dataEmitere": "2026-06-02",
-    "costConsultatie": 200.0,
-    "costInternare": 0.0,
-    "costTratament": 120.0,
-    "reducere": 32.0,
-    "total": 288.0
+    "costConsultatie": 200,
+    "costInternare": 0,
+    "costTratament": 120,
+    "reducere": 32,
+    "total": 288
   },
   {
     "idFactura": 2,
     "idPacient": 2,
     "dataEmitere": "2026-06-02",
-    "costConsultatie": 220.0,
-    "costInternare": 1000.0,
-    "costTratament": 180.0,
-    "reducere": 0.0,
-    "total": 1400.0
+    "costConsultatie": 220,
+    "costInternare": 1000,
+    "costTratament": 180,
+    "reducere": 0,
+    "total": 1400
   },
   {
     "idFactura": 3,
     "idPacient": 4,
     "dataEmitere": "2026-06-02",
-    "costConsultatie": 250.0,
-    "costInternare": 1800.0,
-    "costTratament": 300.0,
-    "reducere": 50.0,
-    "total": 2300.0
+    "costConsultatie": 250,
+    "costInternare": 1800,
+    "costTratament": 300,
+    "reducere": 50,
+    "total": 2300
   },
   {
     "idFactura": 4,
     "idPacient": 6,
     "dataEmitere": "2026-06-02",
-    "costConsultatie": 210.0,
-    "costInternare": 1400.0,
-    "costTratament": 240.0,
-    "reducere": 0.0,
-    "total": 1850.0
+    "costConsultatie": 210,
+    "costInternare": 1400,
+    "costTratament": 240,
+    "reducere": 0,
+    "total": 1850
   },
   {
     "idFactura": 5,
     "idPacient": 7,
     "dataEmitere": "2026-06-02",
-    "costConsultatie": 260.0,
-    "costInternare": 3150.0,
-    "costTratament": 420.0,
-    "reducere": 100.0,
-    "total": 3730.0
+    "costConsultatie": 260,
+    "costInternare": 3150,
+    "costTratament": 420,
+    "reducere": 100,
+    "total": 3730
   }
 ]

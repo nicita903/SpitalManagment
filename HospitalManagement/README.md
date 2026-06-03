@@ -19,7 +19,7 @@ Aplicația este gândită pe roluri, astfel încât fiecare utilizator să vadă
 - [Clase importante](#clase-importante)
 - [Fișiere JSON](#fișiere-json)
 - [Date de test](#date-de-test)
-- [Rulare aplicație web](#rulare-aplicație-web)
+- [Rulare aplicație web cu salvare în JSON](#rulare-aplicație-web-cu-salvare-în-json)
 - [Rulare aplicație C++](#rulare-aplicație-c)
 - [Observații despre salvarea datelor](#observații-despre-salvarea-datelor)
 - [Autor](#autor)
@@ -129,6 +129,9 @@ HospitalManagement/
 │   └── script.js
 │
 ├── tests/                   # Teste C++
+├── server.js                # Server Node.js pentru salvare în JSON
+├── start_server_windows.bat # Pornire rapidă server pe Windows
+├── package.json             # Comandă npm start
 ├── Makefile                 # Comenzi pentru compilare/rulare
 └── README.md                # Prezentarea proiectului
 ```
@@ -207,24 +210,95 @@ Aceste date ajută la demonstrarea funcționalităților aplicației fără a in
 
 ---
 
-## Rulare aplicație web
+## Rulare aplicație web cu salvare în JSON
 
-Pentru rularea interfeței web:
+Pentru ca datele adăugate din interfața web să se salveze permanent în fișierele din folderul `data/*.json`, aplicația trebuie pornită prin serverul local Node.js inclus în proiect.
 
-1. Deschide folderul proiectului.
-2. Intră în folderul:
+### Pași pe Windows
 
-```text
-HospitalManagement/web
-```
-
-3. Deschide fișierul:
+1. Instalează **Node.js** de pe site-ul oficial, dacă nu este deja instalat.
+2. Dezarhivează proiectul.
+3. Intră în folderul principal al proiectului:
 
 ```text
-login.html
+HospitalManagement
 ```
 
-4. Autentifică-te cu unul dintre conturile de test.
+4. Deschide terminalul în acest folder. Poți face click dreapta în folder și alegi:
+
+```text
+Open in Terminal
+```
+
+5. Pornește serverul. Varianta cea mai simplă este să dai dublu click pe:
+
+```text
+start_server_windows.bat
+```
+
+Sau poți porni serverul din terminal:
+
+```powershell
+npm start
+```
+
+sau:
+
+```powershell
+node server.js
+```
+
+6. Deschide aplicația în browser la adresa:
+
+```text
+http://localhost:8080/login.html
+```
+
+După acești pași, modificările făcute în web se salvează automat în fișierele JSON. De exemplu, dacă adaugi un medic nou din pagina **Medici**, acesta va fi scris în:
+
+```text
+data/medici.json
+```
+
+Dacă adaugi un pacient nou, acesta va fi scris în:
+
+```text
+data/pacienti.json
+```
+
+### Ce se salvează în JSON
+
+Serverul salvează automat datele pentru:
+
+| Modul | Fișier JSON actualizat |
+|---|---|
+| Utilizatori / logare | `data/users.json` |
+| Medici | `data/medici.json` |
+| Pacienți | `data/pacienti.json` |
+| Programări | `data/programari.json` |
+| Internări | `data/internari.json` |
+| Rețete | `data/retete.json` |
+| Facturi | `data/facturi.json` |
+| Farmacie | `data/medicamente.json` |
+| Achiziții medicamente | `data/achizitii_medicamente.json` |
+| Statistici | `data/statistici.json` |
+| Raport | `data/raport_spital.json` |
+
+### Important
+
+Nu deschide proiectul direct prin dublu click pe `login.html` dacă vrei salvare în JSON. Deschiderea directă în browser folosește doar `localStorage`, iar fișierele `.json` nu pot fi modificate direct de browser.
+
+Corect pentru salvare în JSON:
+
+```text
+http://localhost:8080/login.html
+```
+
+Greșit pentru salvare permanentă în JSON:
+
+```text
+file:///.../HospitalManagement/web/login.html
+```
 
 ### Resetarea datelor salvate în browser
 
@@ -243,37 +317,146 @@ localStorage.clear()
 
 ---
 
-## Rulare aplicație C++
+## Rulare aplicație C++ pe Windows
 
-Pe Linux/Ubuntu sau WSL:
+Proiectul poate fi rulat pe Windows în două moduri: direct prin executabilul deja inclus sau prin compilare în terminal.
 
-```bash
-sudo apt update
-sudo apt install g++ make -y
-make clean
-make
-make run
+### Varianta 1: rulare rapidă cu executabilul inclus
+
+1. Descarcă și dezarhivează proiectul.
+2. Intră în folderul:
+
+```text
+HospitalManagement
 ```
 
-Pentru rularea testelor:
-
-```bash
-make test
-```
-
-Pe Windows, proiectul poate fi rulat și prin executabilul existent:
+3. Deschide fișierul:
 
 ```text
 hospital_app.exe
 ```
 
+Aceasta este cea mai simplă variantă, deoarece nu mai trebuie să compilezi proiectul manual.
+
+### Varianta 2: rulare din Command Prompt sau PowerShell
+
+1. Deschide folderul proiectului `HospitalManagement`.
+2. Click dreapta într-un spațiu liber din folder.
+3. Alege:
+
+```text
+Open in Terminal
+```
+
+sau deschide manual **PowerShell** / **Command Prompt** în folderul proiectului.
+
+4. Rulează comanda:
+
+```powershell
+.\hospital_app.exe
+```
+
+### Varianta 3: compilare pe Windows cu MinGW
+
+Dacă vrei să compilezi proiectul din codul sursă, trebuie să ai instalat **MinGW** sau **MSYS2** cu compilatorul `g++`.
+
+După instalare, verifică în terminal:
+
+```powershell
+g++ --version
+```
+
+Dacă apare versiunea compilatorului, poți compila proiectul.
+
+#### Compilare simplă cu g++
+
+Din folderul `HospitalManagement`, rulează:
+
+```powershell
+g++ src\*.cpp -o hospital_app.exe
+```
+
+Apoi pornește aplicația:
+
+```powershell
+.\hospital_app.exe
+```
+
+#### Compilare cu mingw32-make
+
+Dacă ai instalat `mingw32-make`, poți folosi:
+
+```powershell
+mingw32-make clean
+mingw32-make
+.\hospital_app.exe
+```
+
+Dacă apare eroarea:
+
+```text
+mingw32-make : The term 'mingw32-make' is not recognized
+```
+
+înseamnă că MinGW nu este adăugat în variabila de sistem **PATH** sau nu este instalat complet. În această situație, folosește varianta cu executabilul deja inclus sau instalează MinGW/MSYS2 și adaugă folderul `bin` în PATH.
+
+---
+
+## Rulare aplicație web pe Windows
+
+Pentru partea web se recomandă rularea cu **Node.js**, deoarece această variantă salvează automat datele noi în fișierele `.json`.
+
+### Varianta recomandată: rulare cu Node.js și salvare în JSON
+
+Din folderul principal al proiectului `HospitalManagement`, poți porni serverul prin dublu click pe:
+
+```text
+start_server_windows.bat
+```
+
+Sau din terminal:
+
+```powershell
+npm start
+```
+
+sau direct:
+
+```powershell
+node server.js
+```
+
+Apoi deschide în browser:
+
+```text
+http://localhost:8080/login.html
+```
+
+În această variantă, datele adăugate din web se salvează permanent în folderul `data/`.
+
+### Varianta simplă: deschidere directă în browser
+
+Poți deschide și direct:
+
+```text
+HospitalManagement/web/login.html
+```
+
+Această variantă este utilă doar pentru prezentare rapidă. Datele noi se salvează în browser, nu în fișierele JSON.
+
 ---
 
 ## Observații despre salvarea datelor
 
-În varianta web simplă, datele adăugate din browser pot fi salvate în `localStorage`, adică în memoria browserului. De aceea, dacă se adaugă un medic sau un pacient direct din interfața web, modificarea poate să nu apară automat în fișierul JSON de pe disc.
+În proiect a fost adăugat fișierul `server.js`, care funcționează ca un mic backend local. Acesta primește datele trimise din interfața web și le scrie în fișierele JSON din folderul `data/`.
 
-Pentru salvare permanentă direct în fișierele JSON, proiectul ar avea nevoie de un mic server local, de exemplu cu **Node.js + Express**, care să primească datele din web și să le scrie în fișierele din folderul `data/`.
+Fluxul de salvare este următorul:
+
+```text
+Web form → JavaScript → server.js → data/*.json
+```
+
+Astfel, dacă adaugi un medic, pacient, medicament, internare, rețetă sau factură, modificarea rămâne salvată în proiect.
 
 ---
 

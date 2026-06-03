@@ -6,9 +6,9 @@
     "dataInternare": "2026-06-02",
     "numarZile": 4,
     "tipSalon": "standard",
-    "costPeZi": 250.0,
+    "costPeZi": 250,
     "status": "activa",
-    "costTotal": 1000.0
+    "costTotal": 1000
   },
   {
     "idInternare": 2,
@@ -17,9 +17,9 @@
     "dataInternare": "2026-06-01",
     "numarZile": 6,
     "tipSalon": "standard",
-    "costPeZi": 300.0,
+    "costPeZi": 300,
     "status": "activa",
-    "costTotal": 1800.0
+    "costTotal": 1800
   },
   {
     "idInternare": 3,
@@ -28,9 +28,9 @@
     "dataInternare": "2026-06-02",
     "numarZile": 5,
     "tipSalon": "standard",
-    "costPeZi": 280.0,
+    "costPeZi": 280,
     "status": "activa",
-    "costTotal": 1400.0
+    "costTotal": 1400
   },
   {
     "idInternare": 4,
@@ -39,9 +39,9 @@
     "dataInternare": "2026-05-31",
     "numarZile": 7,
     "tipSalon": "terapie",
-    "costPeZi": 450.0,
+    "costPeZi": 450,
     "status": "activa",
-    "costTotal": 3150.0
+    "costTotal": 3150
   },
   {
     "idInternare": 5,
@@ -50,8 +50,8 @@
     "dataInternare": "2026-06-02",
     "numarZile": 3,
     "tipSalon": "standard",
-    "costPeZi": 320.0,
+    "costPeZi": 320,
     "status": "activa",
-    "costTotal": 960.0
+    "costTotal": 960
   }
 ]

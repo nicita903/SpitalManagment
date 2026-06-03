@@ -76,5 +76,14 @@
     "doctorId": 1,
     "fullName": "Dr. Radu Pavel",
     "active": true
+  },
+  {
+    "id": 10,
+    "username": "medic6",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 6,
+    "fullName": "Dr. Mircea Marcel",
+    "active": true
   }
 ]

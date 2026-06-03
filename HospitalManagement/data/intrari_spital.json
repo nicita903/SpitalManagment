@@ -1,0 +1,14 @@
+[
+  {
+    "idIntrare": 1,
+    "idPacient": 11,
+    "dataIntrare": "2026-06-03",
+    "oraIntrare": "18:44",
+    "modIntrare": "ambulanta",
+    "motivPrezentare": "doare capu",
+    "nivelUrgenta": "urgent",
+    "insotitor": "-",
+    "observatiiInitiale": "-",
+    "status": "inregistrat"
+  }
+]

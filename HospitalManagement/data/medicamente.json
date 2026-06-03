@@ -1,7 +1,42 @@
 [
-  { "idMedicament": 1, "denumire": "Paracetamol", "substantaActiva": "Paracetamol", "pretUnitar": 12.5, "stoc": 80, "necesitaReteta": "nu" },
-  { "idMedicament": 2, "denumire": "Amoxicilina", "substantaActiva": "Amoxicilina", "pretUnitar": 28.9, "stoc": 45, "necesitaReteta": "da" },
-  { "idMedicament": 3, "denumire": "Ibuprofen", "substantaActiva": "Ibuprofen", "pretUnitar": 18.0, "stoc": 60, "necesitaReteta": "nu" },
-  { "idMedicament": 4, "denumire": "Metformin", "substantaActiva": "Metformin", "pretUnitar": 31.4, "stoc": 35, "necesitaReteta": "da" },
-  { "idMedicament": 5, "denumire": "Omeprazol", "substantaActiva": "Omeprazol", "pretUnitar": 24.0, "stoc": 50, "necesitaReteta": "nu" }
+  {
+    "idMedicament": 1,
+    "denumire": "Paracetamol",
+    "substantaActiva": "Paracetamol",
+    "pretUnitar": 12.5,
+    "stoc": 80,
+    "necesitaReteta": "nu"
+  },
+  {
+    "idMedicament": 2,
+    "denumire": "Amoxicilina",
+    "substantaActiva": "Amoxicilina",
+    "pretUnitar": 28.9,
+    "stoc": 45,
+    "necesitaReteta": "da"
+  },
+  {
+    "idMedicament": 3,
+    "denumire": "Ibuprofen",
+    "substantaActiva": "Ibuprofen",
+    "pretUnitar": 18,
+    "stoc": 60,
+    "necesitaReteta": "nu"
+  },
+  {
+    "idMedicament": 4,
+    "denumire": "Metformin",
+    "substantaActiva": "Metformin",
+    "pretUnitar": 31.4,
+    "stoc": 35,
+    "necesitaReteta": "da"
+  },
+  {
+    "idMedicament": 5,
+    "denumire": "Omeprazol",
+    "substantaActiva": "Omeprazol",
+    "pretUnitar": 24,
+    "stoc": 50,
+    "necesitaReteta": "nu"
+  }
 ]

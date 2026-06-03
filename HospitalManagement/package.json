@@ -1,0 +1,9 @@
+{
+  "name": "gestiune-spital",
+  "version": "1.0.0",
+  "description": "Sistem web pentru gestiunea unui spital cu salvare in fisiere JSON.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

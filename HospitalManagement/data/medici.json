@@ -58,5 +58,17 @@
     "specializare": "Neurolog",
     "codParafa": "NEU005",
     "numarConsultatii": 16
+  },
+  {
+    "id": 6,
+    "nume": "Mircea",
+    "prenume": "Marcel",
+    "varsta": 67,
+    "telefon": "07654345",
+    "salariu": 5000,
+    "sectie": "Gastrologie",
+    "specializare": "Medic",
+    "codParafa": "432",
+    "numarConsultatii": 9
   }
 ]
