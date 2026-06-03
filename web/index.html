@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestiune Spital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Tema 3123A</p>
+            <h1>Gestiune Spital</h1>
+        </div>
+        <div class="top-actions">
+            <button id="reloadBtn" class="icon-btn" title="Reincarca datele" aria-label="Reincarca datele">R</button>
+            <button id="exportBtn" class="icon-btn primary" title="Export dashboard" aria-label="Export dashboard">E</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="metrics" aria-label="Indicatori principali">
+            <article>
+                <span>Pacienti</span>
+                <strong id="pacientiCount">0</strong>
+            </article>
+            <article>
+                <span>Programari</span>
+                <strong id="programariCount">0</strong>
+            </article>
+            <article>
+                <span>Internari</span>
+                <strong id="internariCount">0</strong>
+            </article>
+            <article>
+                <span>Total facturi</span>
+                <strong id="totalFacturi">0 lei</strong>
+            </article>
+        </section>
+
+        <section class="workspace">
+            <aside class="sidebar">
+                <label for="diagnosticFilter">Diagnostic</label>
+                <input id="diagnosticFilter" type="search" placeholder="ex: fractura">
+
+                <label for="sectieFilter">Sectie</label>
+                <select id="sectieFilter">
+                    <option value="">Toate sectiile</option>
+                </select>
+
+                <div class="status-box">
+                    <span>Fisier sursa</span>
+                    <strong id="dataSource">data/spital.json</strong>
+                </div>
+            </aside>
+
+            <section class="content-grid">
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Pacienti</h2>
+                        <span id="pacientiFiltered">0 rezultate</span>
+                    </div>
+                    <div id="pacientiList" class="list"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Programari</h2>
+                        <span>calendar</span>
+                    </div>
+                    <div id="programariList" class="list compact"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Medici</h2>
+                        <span>specializari</span>
+                    </div>
+                    <div id="mediciList" class="list compact"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Facturi</h2>
+                        <span>emise</span>
+                    </div>
+                    <div id="facturiList" class="list compact"></div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
