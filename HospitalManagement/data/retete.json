@@ -1,0 +1,29 @@
+[
+  {
+    "idReteta": 1,
+    "idPacient": 1,
+    "idMedic": 1,
+    "medicamente": "Paracetamol",
+    "dozaj": "1 comprimat la 8 ore",
+    "durataTratament": "5 zile",
+    "dataEmitere": "2026-06-02"
+  },
+  {
+    "idReteta": 2,
+    "idPacient": 3,
+    "idMedic": 1,
+    "medicamente": "Antihipertensiv",
+    "dozaj": "1 comprimat dimineata",
+    "durataTratament": "30 zile",
+    "dataEmitere": "2026-06-02"
+  },
+  {
+    "idReteta": 3,
+    "idPacient": 6,
+    "idMedic": 3,
+    "medicamente": "Antibiotic",
+    "dozaj": "1 comprimat la 12 ore",
+    "durataTratament": "7 zile",
+    "dataEmitere": "2026-06-02"
+  }
+]

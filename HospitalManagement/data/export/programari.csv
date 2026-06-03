@@ -1,0 +1,2 @@
+idProgramare,idPacient,idMedic,data,ora,tipConsultatie,status
+1,1,1,"2026-06-10","09:30","Consultatie","planificata"

@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "admin123",
+    "role": "admin",
+    "fullName": "Administrator sistem",
+    "active": true
+  },
+  {
+    "id": 2,
+    "username": "receptie",
+    "password": "receptie123",
+    "role": "receptie",
+    "fullName": "Operator receptie",
+    "active": true
+  },
+  {
+    "id": 3,
+    "username": "farmacie",
+    "password": "farmacie123",
+    "role": "farmacie",
+    "fullName": "Operator farmacie",
+    "active": true
+  },
+  {
+    "id": 4,
+    "username": "medic1",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 1,
+    "fullName": "Dr. Radu Pavel",
+    "active": true
+  },
+  {
+    "id": 5,
+    "username": "medic2",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 2,
+    "fullName": "Dr. Stan Irina",
+    "active": true
+  },
+  {
+    "id": 6,
+    "username": "medic3",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 3,
+    "fullName": "Dr. Botezatu Sergiu",
+    "active": true
+  },
+  {
+    "id": 7,
+    "username": "medic4",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 4,
+    "fullName": "Dr. Dumitrescu Alina",
+    "active": true
+  },
+  {
+    "id": 8,
+    "username": "medic5",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 5,
+    "fullName": "Dr. Moldovan Cristian",
+    "active": true
+  },
+  {
+    "id": 9,
+    "username": "medic",
+    "password": "medic123",
+    "role": "medic",
+    "doctorId": 1,
+    "fullName": "Dr. Radu Pavel",
+    "active": true
+  }
+]

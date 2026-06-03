@@ -1,0 +1,2 @@
+idFactura,idPacient,dataEmitere,costConsultatie,costInternare,costTratament,reducere,total
+1,1,"2026-06-02",200,0,120,0.1,288

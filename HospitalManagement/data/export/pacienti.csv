@@ -1,0 +1,11 @@
+id,nume,prenume,varsta,telefon,diagnostic,grupaSange,adresa,internat,alergii,prioritate
+1,Popescu,Ana,25,0711111111,Gripa sezoniera,A+,Chisinau, str. Stefan cel Mare 12,false,fara,medie
+2,Ionescu,Mihai,39,0722222222,Fractura antebrat,B+,Balti, str. Decebal 8,true,penicilina,urgenta
+3,Ceban,Elena,58,0731112233,Hipertensiune arteriala,O+,Chisinau, bd. Dacia 45,false,fara,medie
+4,Rusu,Victor,64,0745556677,Diabet zaharat tip 2,AB+,Orhei, str. Vasile Lupu 21,true,sulfamide,critica
+5,Munteanu,Irina,31,0753334444,Migrena cronica,A-,Ungheni, str. Nationala 17,false,fara,scazuta
+6,Moraru,Andrei,47,0767778888,Pneumonie comunitara,O-,Cahul, str. Republicii 5,true,aspirina,urgenta
+7,Lupu,Maria,72,0772223333,Insuficienta cardiaca,B-,Soroca, str. Independentei 30,true,fara,critica
+8,Rotaru,Dumitru,18,0784445555,Apendicita acuta,A+,Edinet, str. Mihai Eminescu 9,true,fara,urgenta
+9,Balan,Sofia,43,0791110000,Gastrita cronica,AB-,Hincesti, str. Alexandru cel Bun 14,false,lactoza,medie
+10,Ciobanu,Nicolai,52,0719998888,Bronsita acuta,O+,Balti, str. Kiev 33,false,fara,scazuta

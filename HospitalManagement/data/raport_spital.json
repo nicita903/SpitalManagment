@@ -1,0 +1,10 @@
+{
+  "totalPacienti": 10,
+  "pacientiInternati": 5,
+  "totalMedici": 4,
+  "programariActive": 5,
+  "totalFacturi": 5,
+  "venitTotal": 9568.0,
+  "diagnosticFrecvent": "Gripa",
+  "pacientiCriticiUrgenti": 5
+}

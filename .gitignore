@@ -1,9 +1,0 @@
-build/
-logs/
-data/
-*.exe
-*.o
-*.obj
-*.out
-.vscode/
-.idea/

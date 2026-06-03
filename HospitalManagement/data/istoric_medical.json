@@ -1,0 +1,26 @@
+[
+  {
+    "idIstoric": 1,
+    "idPacient": 1,
+    "diagnosticAnterior": "Gripa",
+    "tratament": "Paracetamol",
+    "dataConsultatie": "2026-05-20",
+    "observatiiMedic": "Evolutie buna"
+  },
+  {
+    "idIstoric": 2,
+    "idPacient": 3,
+    "diagnosticAnterior": "Hipertensiune arteriala",
+    "tratament": "Monitorizare tensiune si dieta hiposodata",
+    "dataConsultatie": "2026-05-28",
+    "observatiiMedic": "Necesita control lunar"
+  },
+  {
+    "idIstoric": 3,
+    "idPacient": 6,
+    "diagnosticAnterior": "Pneumonie",
+    "tratament": "Antibiotic si repaus",
+    "dataConsultatie": "2026-06-01",
+    "observatiiMedic": "Internare recomandata"
+  }
+]

@@ -1,0 +1,9 @@
+Raport spital
+Numar total pacienti: 2
+Numar pacienti internati: 1
+Numar medici: 2
+Numar programari active: 1
+Numar facturi: 1
+Venit total: 288.00
+Diagnostic frecvent: Fractura
+Pacienti critici/urgenti: 1

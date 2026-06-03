@@ -1,0 +1,47 @@
+[
+  {
+    "idProgramare": 1,
+    "idPacient": 1,
+    "idMedic": 1,
+    "data": "2026-06-10",
+    "ora": "09:30",
+    "tipConsultatie": "Consultatie generala",
+    "status": "planificata"
+  },
+  {
+    "idProgramare": 2,
+    "idPacient": 3,
+    "idMedic": 1,
+    "data": "2026-06-10",
+    "ora": "10:30",
+    "tipConsultatie": "Control tensiune",
+    "status": "planificata"
+  },
+  {
+    "idProgramare": 3,
+    "idPacient": 5,
+    "idMedic": 4,
+    "data": "2026-06-11",
+    "ora": "13:00",
+    "tipConsultatie": "Consultatie neurologica",
+    "status": "planificata"
+  },
+  {
+    "idProgramare": 4,
+    "idPacient": 9,
+    "idMedic": 4,
+    "data": "2026-06-12",
+    "ora": "11:15",
+    "tipConsultatie": "Consultatie gastroenterologie",
+    "status": "planificata"
+  },
+  {
+    "idProgramare": 5,
+    "idPacient": 10,
+    "idMedic": 3,
+    "data": "2026-06-13",
+    "ora": "08:45",
+    "tipConsultatie": "Control respirator",
+    "status": "planificata"
+  }
+]

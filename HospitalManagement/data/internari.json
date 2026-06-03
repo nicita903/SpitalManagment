@@ -1,0 +1,57 @@
+[
+  {
+    "idInternare": 1,
+    "idPacient": 2,
+    "sectie": "Ortopedie",
+    "dataInternare": "2026-06-02",
+    "numarZile": 4,
+    "tipSalon": "standard",
+    "costPeZi": 250.0,
+    "status": "activa",
+    "costTotal": 1000.0
+  },
+  {
+    "idInternare": 2,
+    "idPacient": 4,
+    "sectie": "Medicina interna",
+    "dataInternare": "2026-06-01",
+    "numarZile": 6,
+    "tipSalon": "standard",
+    "costPeZi": 300.0,
+    "status": "activa",
+    "costTotal": 1800.0
+  },
+  {
+    "idInternare": 3,
+    "idPacient": 6,
+    "sectie": "Pneumologie",
+    "dataInternare": "2026-06-02",
+    "numarZile": 5,
+    "tipSalon": "standard",
+    "costPeZi": 280.0,
+    "status": "activa",
+    "costTotal": 1400.0
+  },
+  {
+    "idInternare": 4,
+    "idPacient": 7,
+    "sectie": "Cardiologie",
+    "dataInternare": "2026-05-31",
+    "numarZile": 7,
+    "tipSalon": "terapie",
+    "costPeZi": 450.0,
+    "status": "activa",
+    "costTotal": 3150.0
+  },
+  {
+    "idInternare": 5,
+    "idPacient": 8,
+    "sectie": "Chirurgie",
+    "dataInternare": "2026-06-02",
+    "numarZile": 3,
+    "tipSalon": "standard",
+    "costPeZi": 320.0,
+    "status": "activa",
+    "costTotal": 960.0
+  }
+]

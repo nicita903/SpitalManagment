@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nume": "Radu",
+    "prenume": "Pavel",
+    "varsta": 45,
+    "telefon": "0733333333",
+    "salariu": 18500,
+    "sectie": "Cardiologie",
+    "specializare": "Cardiolog",
+    "codParafa": "CARD001",
+    "numarConsultatii": 18
+  },
+  {
+    "id": 2,
+    "nume": "Stan",
+    "prenume": "Irina",
+    "varsta": 39,
+    "telefon": "0744444444",
+    "salariu": 17200,
+    "sectie": "Ortopedie",
+    "specializare": "Ortoped",
+    "codParafa": "ORT002",
+    "numarConsultatii": 14
+  },
+  {
+    "id": 3,
+    "nume": "Botezatu",
+    "prenume": "Sergiu",
+    "varsta": 42,
+    "telefon": "0755556666",
+    "salariu": 19000,
+    "sectie": "Urgente",
+    "specializare": "Medic urgentist",
+    "codParafa": "URG003",
+    "numarConsultatii": 26
+  },
+  {
+    "id": 4,
+    "nume": "Dumitrescu",
+    "prenume": "Alina",
+    "varsta": 36,
+    "telefon": "0766667777",
+    "salariu": 16800,
+    "sectie": "Medicina interna",
+    "specializare": "Medic internist",
+    "codParafa": "INT004",
+    "numarConsultatii": 21
+  },
+  {
+    "id": 5,
+    "nume": "Moldovan",
+    "prenume": "Cristian",
+    "varsta": 48,
+    "telefon": "0777778888",
+    "salariu": 18000,
+    "sectie": "Neurologie",
+    "specializare": "Neurolog",
+    "codParafa": "NEU005",
+    "numarConsultatii": 16
+  }
+]
