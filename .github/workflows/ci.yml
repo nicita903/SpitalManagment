@@ -2,15 +2,29 @@ name: C++ CI
 
 on:
   push:
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
   build-test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Build
-        run: make
-      - name: Test
-        run: make test
+      - name: Descarca proiectul
+        uses: actions/checkout@v4
+
+      - name: Instaleaza CMake
+        run: sudo apt update && sudo apt install -y cmake g++
+
+      - name: Configureaza proiectul
+        run: cmake -S HospitalManagement -B HospitalManagement/build
+
+      - name: Compileaza proiectul
+        run: cmake --build HospitalManagement/build
+
+      - name: Ruleaza testele
+        run: |
+          cd HospitalManagement/build
+          ./test_facturi
+          ./test_programari
